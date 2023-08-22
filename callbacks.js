@@ -11,7 +11,7 @@ function firstfunction(param, callback){
 //3states: pending,fulfilled, rejecting
 
 const mypromise = new Promise((resolve, reject) => {
-    const error = false
+    const error = true
     if(!error){
         resolve(`yes resolve the promise`)
     }else{
@@ -19,10 +19,14 @@ const mypromise = new Promise((resolve, reject) => {
     }
 });
   console.log(mypromise)
-  
+
+
   mypromise.then( value =>{
   return value + 1 
 } )
  .then((newvalue) =>{
     console.log(newvalue)
  }) 
+ .catch(err =>{
+    console.error(err) //this part is to catch the error
+ })

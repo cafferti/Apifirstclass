@@ -11,22 +11,25 @@ function firstfunction(param, callback){
 //3states: pending,fulfilled, rejecting
 
 const mypromise = new Promise((resolve, reject) => {
-    const error = true
+    const error = false
     if(!error){
         resolve(`yes resolve the promise`)
     }else{
         reject(`no! rejected the promise`)
     }
 });
-  console.log(mypromise)
 
 
-  mypromise.then( value =>{
-  return value + 1 
-} )
- .then((newvalue) =>{
-    console.log(newvalue)
- }) 
- .catch(err =>{
-    console.error(err) //this part is to catch the error
+ const nextpromise = new Promise((resolve, reject) => {
+    setTimeout(function(){
+           resolve(`my nextpromise resolved`);
+    }, 3000)
  })
+
+  nextpromise.then((value) =>{
+    console.log(value)
+  })
+
+  mypromise.then((value) =>{
+    console.log(value)
+  })

@@ -66,7 +66,6 @@
   const mycoolfunction = async () =>{
    const response = await fetch(`https:jsonplaceholder.typicode.com/users`)
    const convertRestojson = await response.json();
-   console.log(convertRestojson)
    return convertRestojson
   }
 
@@ -74,8 +73,12 @@
 
   const anodafunct = async () => {
    const data = await mycoolfunction();
-    console.log(data)
+    myusers.userlist = data
+    myusers.userlist.forEach((user) =>{
+        console.log(user)
+    })
   }
 
   anodafunct()
+  console.log(myusers.userlist) // this is void cause its outside the function soo its not waiting
 

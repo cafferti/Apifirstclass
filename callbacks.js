@@ -39,11 +39,20 @@
   console.log(user);
   //the above is the pending state of promises
 
-  fetch(`https:jsonplaceholder.typicode.com/users`)
-  .then(response =>{
+
+
+ const users = fetch(`https:jsonplaceholder.typicode.com/users`)
+  .then(response => {
     // console.log(response)
    return response.json();
   }) 
   .then(data => {
     console.log(data)
+    data.forEach((user) =>{
+        console.log(user)
+    })
   })
+ 
+  //user in nthe foreach depends on the developer its just a variable  to save each item of the data array during each iteration
+
+  

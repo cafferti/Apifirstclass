@@ -35,24 +35,47 @@
 //   })      
   
   //pending state of promisse
-  const user = fetch(`https:jsonplaceholder.typicode.com/users`);
-  console.log(user);
-  //the above is the pending state of promises
+//   const user = fetch(`https:jsonplaceholder.typicode.com/users`);
+//   console.log(user);
+//   //the above is the pending state of promises
 
 
-
- const users = fetch(`https:jsonplaceholder.typicode.com/users`)
-  .then(response => {
-    // console.log(response)
-   return response.json();
-  }) 
-  .then(data => {
-    console.log(data)
-    data.forEach((user) =>{
-        console.log(user)
-    })
-  })
+// //THENABLES
+//  const users = fetch(`https:jsonplaceholder.typicode.com/users`)
+//   .then(response => {
+//     // console.log(response)
+//    return response.json();
+//   }) 
+//   .then(data => {
+//     console.log(data)
+//     data.forEach((user) =>{
+//         console.log(user)
+//     })
+//   })
  
   //user in nthe foreach depends on the developer its just a variable  to save each item of the data array during each iteration
 
+  //ASYNC/AWAIT
+  const myusers = {
+    userlist:[]
+  }
+//   async function myfunction(){
+    
+//   } use arrow function preferably
+
+  const mycoolfunction = async () =>{
+   const response = await fetch(`https:jsonplaceholder.typicode.com/users`)
+   const convertRestojson = await response.json();
+   console.log(convertRestojson)
+   return convertRestojson
+  }
+
   
+
+  const anodafunct = async () => {
+   const data = await mycoolfunction();
+    console.log(data)
+  }
+
+  anodafunct()
+
